@@ -1,4 +1,4 @@
-import annotations.NetworkAPI;
+import project.annotations.NetworkAPI;
 
 @NetworkAPI
 public interface User{

@@ -1,4 +1,4 @@
-import annotations.NetworkAPIPrototype;
+import project.annotations.NetworkAPIPrototype;
 
 @NetworkAPIPrototype
 public class PrototypeUser{

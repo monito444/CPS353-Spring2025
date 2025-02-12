@@ -1,4 +1,4 @@
-import annotations.ConceptualAPIPrototype;
+import project.annotations.ConceptualAPIPrototype;
 
 @ConceptualAPIPrototype
 public class PrototypeComputeEngine{
