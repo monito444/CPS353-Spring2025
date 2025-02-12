@@ -1,3 +1,4 @@
+@ConceptualAPIPrototype
 public class PrototypeComputeEngine{
 	public void prototype(ComputeEngine engine) {
 		// Reading and writing component

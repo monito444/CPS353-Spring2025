@@ -1,3 +1,4 @@
+@ProcessAPIPrototype
 public class PrototypeDataStorage{
 	public void prototype(DataStorage storage) {
 		// Read in the input source file provided by ComputeEngine
