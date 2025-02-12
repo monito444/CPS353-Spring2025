@@ -1,4 +1,4 @@
-import project.ProcessAPIPrototype;
+import annotations.ProcessAPIPrototype;
 
 @ProcessAPIPrototype
 public class PrototypeDataStorage{

@@ -1,4 +1,4 @@
-import package.ProcessAPI;
+import annotations.ProcessAPI;
 
 @ProcessAPI
 public interface DataStorage{

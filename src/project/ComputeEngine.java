@@ -1,4 +1,4 @@
-import package.ConceptualAPI;
+import annotations.ConceptualAPI;
 
 @ConceptualAPI
 public interface ComputeEngine{
