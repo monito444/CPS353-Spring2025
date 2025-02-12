@@ -1,4 +1,7 @@
+import project.annotations.NetworkAPIPrototype;
+
 public class PrototypeUser{
+	@NetworkAPIPrototype
 	public void prototype(User user) {
 		// ask the user to input a file name
 		// if file name does not exist, ask the user again to input a file name

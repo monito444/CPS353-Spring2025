@@ -1,4 +1,7 @@
+import project.annotations.ProcessAPIPrototype;
+
 public class PrototypeDataStorage{
+	@ProcessAPIPrototype
 	public void prototype(DataStorage storage) {
 		// Read in the input source file provided by ComputeEngine
 		// if input file does not exist, send a fail status to ComputeEngine
