@@ -1,3 +1,5 @@
+import project.ProcessAPIPrototype;
+
 @ProcessAPIPrototype
 public class PrototypeDataStorage{
 	public void prototype(DataStorage storage) {

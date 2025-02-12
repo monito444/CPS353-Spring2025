@@ -1,3 +1,5 @@
+import package.NetworkAPIPrototype;
+
 @NetworkAPIPrototype
 public class PrototypeUser{
 	public void prototype(User user) {
