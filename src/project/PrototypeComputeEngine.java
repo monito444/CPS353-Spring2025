@@ -1,7 +1,7 @@
 import project.annotations.ConceptualAPIPrototype;
 
-@ConceptualAPIPrototype
 public class PrototypeComputeEngine{
+	@ConceptualAPIPrototype
 	public void prototype(ComputeEngine engine) {
 		// Reading and writing component
 		// First initialize
