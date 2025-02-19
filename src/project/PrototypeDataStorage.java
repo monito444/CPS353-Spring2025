@@ -1,3 +1,5 @@
+package src.project;
+
 import project.annotations.ProcessAPIPrototype;
 
 public class PrototypeDataStorage{
