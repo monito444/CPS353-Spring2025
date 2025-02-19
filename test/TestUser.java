@@ -6,16 +6,15 @@ import org.mockito.Mockito;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.any;
 
-import src.project.User;
-import src.project.PrototypeUser;
+import src.project.DataStorage;
+import src.project.ComputeEngine;
 
-class TestUser {
+public class TestUser {
 
 	@Test
-	public void testPrototype() throws Exception{
-		User mockUser = Mockito.mock(User.class);
-		
-		PrototypeUser testUser = new PrototypeUser(mockUser);
+	public void testMethod() throws Exception{
+		DataStorage mockDataStorage = Mockito.mock(DataStorage.class);
+		ComputeEngine mockComputeEngine = Mockito.mock(ComputeEngine.class);
 	}
 
 }
