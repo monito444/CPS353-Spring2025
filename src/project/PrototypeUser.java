@@ -6,7 +6,7 @@ public class PrototypeUser{
 	public void prototype(User userCall) {
 		// ask the user to input a file name
 		// if file name does not exist, ask the user again to input a file name
-		UserInputConfig inputConfig = new InputConfig() {
+		UserInputConfig inputConfig = new UserInputConfig() {
 			
 		};
 		
