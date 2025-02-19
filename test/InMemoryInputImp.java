@@ -1,6 +1,8 @@
 import java.util.List;
+import src.project.UserInputConfig;
 
-public class InMemoryInputImp{
+
+public class InMemoryInputImp implements UserInputConfig{
     private List<Integer> inputData;
 
    
