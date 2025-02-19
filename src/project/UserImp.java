@@ -1,6 +1,6 @@
 package src.project;
 
 public class UserImpl implements User{
-	private ComputeEngineAPI;
+	private ComputeEngine ComputeEngineAPI;
 	// nothing here yet
 }
