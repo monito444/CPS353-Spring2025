@@ -6,7 +6,7 @@ import src.project.UserInputConfig;
 public class InMemoryInputImp implements UserInputConfig{
     private List<Integer> inputData = new ArrayList<>();
 
-   public InMemoryInputImp(ArrayList<Integer> inputData) {
+   public InMemoryInputImp(List<Integer> inputData) {
 	   this.inputData = inputData;
    }
 
