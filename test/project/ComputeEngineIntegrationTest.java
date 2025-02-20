@@ -7,6 +7,7 @@ import src.project.UserImp;
 import src.project.ComputeEngineImp;
 
 import java.util.List;
+import java.util.ArrayList;
 
 
 public class ComputeEngineIntegrationTest {
@@ -21,7 +22,7 @@ public class ComputeEngineIntegrationTest {
 		InMemoryDataStorageAPI dataStorageComponent = new InMemoryDataStorageAPI();
 		
 		// give initial input test [1, 10, 25] with no delimiter specified
-		List<Integer> sampleInput = new List<Integer>();
+		List<Integer> sampleInput = new ArrayList<>();
 		sampleInput.add(1);
 		sampleInput.add(10);
 		sampleInput.add(25);
@@ -31,7 +32,7 @@ public class ComputeEngineIntegrationTest {
 		InMemoryOutputImp testOutput = new InMemoryOutputImp();
 		
 		// add validation of the output
-		List<String> expectedOutput = new List<String>();
+		List<String> expectedOutput = new ArrayList<>();
 		expectedOutput.add("0");
 		expectedOutput.add("44");
 		expectedOutput.add("60,696");
