@@ -1,6 +1,6 @@
-package src.project;;
+package src.project;
 
-public class ComputeEngineImp {
+public class ComputeEngineImp implements ComputeEngine{
     private DataStorage dataStorageAPI;
     private User userAPI;
 
