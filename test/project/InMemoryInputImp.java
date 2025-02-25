@@ -1,13 +1,26 @@
+package project;
+
 import java.util.List;
 import java.util.ArrayList;
-import src.project.UserInputConfig;
+import java.util.Collection;
 
 
 public class InMemoryInputImp implements UserInputConfig{
-    private List<Integer> inputData = new ArrayList<>();
+    private final List<Integer> inputData = new ArrayList<>();
 
-   public InMemoryInputImp(List<Integer> inputData) {
-	   this.inputData = inputData;
-   }
-
+	// enter any number of inputs at a time
+    public InMemoryInputImp(int... inputs) {
+		for(int i : inputs) {
+			inputData.add(i);
+		}
+	}
+	
+    // enter a collection of inputs at once
+	public InMemoryInputImp(Collection<Integer> inputs) {
+		inputData.addAll(inputs);
+	}
+	
+	public List<Integer> getInputs() {
+		return inputData;
+	}
 }

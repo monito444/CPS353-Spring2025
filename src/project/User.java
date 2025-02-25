@@ -1,8 +1,8 @@
-package src.project;
+package project;
 
 import project.annotations.NetworkAPI;
 
 @NetworkAPI
 public interface User{
-	// nothing here yet
+	ComputeResult compute(ComputeRequest request);
 }

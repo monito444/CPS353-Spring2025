@@ -1,8 +1,9 @@
-package src.project;
+package project;
 
 import project.annotations.ProcessAPI;
 
 @ProcessAPI
 public interface DataStorage{
-	// nothing here yet
+	DataStorageReadResult read(UserInputConfig input);
+	WriteResult appendSingleResult(UserOutputConfig output, String result, char delimiter);
 }

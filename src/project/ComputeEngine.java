@@ -1,8 +1,8 @@
-package src.project;
+package project;
 
 import project.annotations.ConceptualAPI;
 
 @ConceptualAPI
 public interface ComputeEngine{
-	// nothing here yet
+	String compute(int value);
 }

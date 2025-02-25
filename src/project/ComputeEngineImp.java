@@ -1,8 +1,9 @@
-package src.project;
+package project;
 
 public class ComputeEngineImp implements ComputeEngine{
-    private DataStorage dataStorageAPI;
-    private User userAPI;
-
-
+    
+    @Override
+    public String compute(int value) {
+    	return null;
+    }
 }
