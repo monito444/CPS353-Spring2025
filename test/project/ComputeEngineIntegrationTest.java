@@ -18,20 +18,20 @@ public class ComputeEngineIntegrationTest {
 		// use empty implementations from src and 
 		// test only data storage
 		ComputeEngine engineComponent = new ComputeEngineImp();
-		User userComponent = new UserImp();
-		
-		// use test-only in-memory data storage
-		InMemoryDataStorageAPI dataStorageComponent = new InMemoryDataStorageAPI();
+		DataStorage dataStorageComponent = new DataStorageImp();
+		User userComponent = new UserImp(engineComponent, dataStorageComponent);
 		
 		// give initial input test [1, 10, 25] with no delimiter specified
-		List<Integer> sampleInput = new ArrayList<>();
-		sampleInput.add(1);
-		sampleInput.add(10);
-		sampleInput.add(25);
-		InMemoryInputImp testInput = new InMemoryInputImp(sampleInput);
+		InMemoryInputImp testInput = new InMemoryInputImp(1, 10, 25);
 		
 		// use in-memory output imp
 		InMemoryOutputImp testOutput = new InMemoryOutputImp();
+		
+		ComputeRequest request = new ComputeRequest(testInput, testOutput);
+		
+		// compute result check
+		ComputeResult result = userComponent.compute(request);
+		Assertions.assertEquals(ComputeResult.SUCCESS, result);
 		
 		// add validation of the output
 		List<String> expectedOutput = new ArrayList<>();
@@ -39,6 +39,7 @@ public class ComputeEngineIntegrationTest {
 		expectedOutput.add("44");
 		expectedOutput.add("60,696");
 		
+		// output check
 		Assertions.assertEquals(expectedOutput, testOutput.getOutput());
 	}
 }
