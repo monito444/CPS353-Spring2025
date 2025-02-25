@@ -1,4 +1,4 @@
-package src.project;
+package project;
 
 public interface UserInputConfig {
 	

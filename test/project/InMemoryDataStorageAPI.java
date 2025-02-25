@@ -1,5 +1,7 @@
+package project;
+
 import java.util.List;
-import src.project.DataStorage;
+import project.DataStorage;
 
 public class InMemoryDataStorageAPI implements DataStorage {
     private DataStorage memoryInput;

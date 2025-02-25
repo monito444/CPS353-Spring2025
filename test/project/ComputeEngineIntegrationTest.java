@@ -1,10 +1,12 @@
+package project;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import src.project.User;
-import src.project.ComputeEngine;
-import src.project.UserImp;
-import src.project.ComputeEngineImp;
+import project.User;
+import project.ComputeEngine;
+import project.UserImp;
+import project.ComputeEngineImp;
 
 import java.util.List;
 import java.util.ArrayList;

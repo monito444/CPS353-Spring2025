@@ -1,4 +1,4 @@
-package src.project;
+package project;
 
 public class DataStorageImp implements DataStorage{
 	private ComputeEngine computeEngineAPI;

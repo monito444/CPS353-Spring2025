@@ -1,6 +1,8 @@
+package project;
+
 import java.util.List;
 import java.util.ArrayList;
-import src.project.UserOutputConfig;
+import project.UserOutputConfig;
 
 
 public class InMemoryOutputImp implements UserOutputConfig{

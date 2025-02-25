@@ -1,6 +1,8 @@
+package project;
+
 import java.util.List;
 import java.util.ArrayList;
-import src.project.UserInputConfig;
+import project.UserInputConfig;
 
 
 public class InMemoryInputImp implements UserInputConfig{
