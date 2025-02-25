@@ -16,5 +16,7 @@ public class PrototypeComputeEngine{
 		
 		// Have the final output be available for the
 		// data storage system.
+		
+		String result = engine.compute(0);
 	}
 }

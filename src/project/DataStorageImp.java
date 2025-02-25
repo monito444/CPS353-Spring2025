@@ -1,6 +1,11 @@
 package project;
 
 public class DataStorageImp implements DataStorage{
+	private ComputeEngine engine;
+	
+	public DataStorageImp(ComputeEngine engine) {
+		this.engine = engine;
+	}
 	
 	@Override
 	public DataStorageReadResult read(UserInputConfig input) {
