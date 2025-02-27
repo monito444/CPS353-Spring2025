@@ -7,38 +7,42 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 public class DataStorageImp implements DataStorage {
 
 	@Override
 	public DataStorageReadResult read(UserInputConfig input) {
 		List<Integer> numbers = new ArrayList<>();
 
-		if (input == null) {
-			return new DataStorageReadResultImp(numbers, false);
+		// Ensure the input is not null
+		if (input == null || input.getFileName() == null || input.getFileName().isEmpty()) {
+			System.err.println("Error: Input file name is missing.");
+			return new DataStorageReadResultImp("Invalid input configuration.");
 		}
 
-		try (BufferedReader br = new BufferedReader(new FileReader(input.getFileName()))) {
+		try (BufferedReader reader = new BufferedReader(new FileReader(input.getFileName()))) {
 			String line;
-			while ((line = br.readLine()) != null) {
-				try {
-					String[] numArray = line.split(",");
-					for (String num : numArray) {
-						numbers.add(Integer.parseInt(num.trim()));
+			while ((line = reader.readLine()) != null) {
+				for (String numStr : line.split(",")) {  // Assuming comma-separated values
+					try {
+						numbers.add(Integer.parseInt(numStr.trim()));
+					} catch (NumberFormatException e) {
+						System.err.println("Skipping invalid number: " + numStr);
 					}
-				} catch (NumberFormatException e) {
-					System.err.println("Skipping invalid number: " + line);
 				}
 			}
-			return new DataStorageReadResultImp(numbers, true);
+			return new DataStorageReadResultImp(numbers); // Success case
 		} catch (IOException e) {
-			System.err.println("Error reading file: " + e.getMessage());
-			return new DataStorageReadResultImp(numbers, false);
+			System.err.println("Error reading file: " + input.getFileName());
+			return new DataStorageReadResultImp("Error reading file: " + input.getFileName());
 		}
 	}
 
 	@Override
 	public WriteResult appendSingleResult(UserOutputConfig output, String result, char delimiter) {
-		if (output == null || result == null) {
+		// Ensure the output is valid
+		if (output == null || output.getFileName() == null || output.getFileName().isEmpty()) {
+			System.err.println("Error: Output file name is missing.");
 			return () -> WriteResult.WriteResultStatus.FAILURE;
 		}
 
