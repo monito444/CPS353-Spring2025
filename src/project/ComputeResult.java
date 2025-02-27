@@ -10,6 +10,19 @@ public interface ComputeResult {
 		
 		@Override
 		public String getFailureMethod() {
+			return "";
+		}
+	};
+	
+static ComputeResult FAILURE = new ComputeResult() {
+		
+		@Override
+		public ComputeResultStatus getStatus() {
+			return ComputeResultStatus.FAILURE;
+		}
+		
+		@Override
+		public String getFailureMethod() {
 			return "Something went wrong";
 		}
 	};
