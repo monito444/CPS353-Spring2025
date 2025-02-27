@@ -14,8 +14,7 @@ public class DataStorageImp implements DataStorage {
 	public DataStorageReadResult read(UserInputConfig input) {
 		List<Integer> numbers = new ArrayList<>();
 
-		// Extract filename directly from input (assuming a way to get the filename exists)
-		String fileName = input != null ? input.toString() : null;  // Adjust this line as needed
+		String fileName = input != null ? input.toString() : null;
 
 		if (fileName == null || fileName.isEmpty()) {
 			System.err.println("Error: Input file name is missing.");
@@ -25,7 +24,7 @@ public class DataStorageImp implements DataStorage {
 		try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
 			String line;
 			while ((line = reader.readLine()) != null) {
-				for (String numStr : line.split(",")) {  // Assuming comma-separated values
+				for (String numStr : line.split(",")) {
 					try {
 						numbers.add(Integer.parseInt(numStr.trim()));
 					} catch (NumberFormatException e) {
@@ -42,8 +41,7 @@ public class DataStorageImp implements DataStorage {
 
 	@Override
 	public WriteResult appendSingleResult(UserOutputConfig output, String result, char delimiter) {
-		// Extract filename directly from output (assuming a way to get the filename exists)
-		String fileName = output != null ? output.toString() : null;  // Adjust this line as needed
+		String fileName = output != null ? output.toString() : null;
 
 		if (fileName == null || fileName.isEmpty()) {
 			System.err.println("Error: Output file name is missing.");
