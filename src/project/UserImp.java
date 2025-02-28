@@ -21,8 +21,8 @@ public class UserImp implements User{
 		DataStorageReadResult readResult =dataStorageAPI.read(inputConfiguration);		
 		Iterable<Integer> integer=readResult.getResults();
 		
-		if (integer!=null) {
-			return ComputeResult.SUCCESS;
+		if (integer==null) {
+			return ComputeResult.FAILURE;
 		}
 		
 		for (Integer i: integer) {//sends to compute Engine.
@@ -31,7 +31,7 @@ public class UserImp implements User{
 		}
 		
 		UserOutputConfig outputConfig=request.getOutputConfig();
-		return null;
+		return ComputeResult.SUCCESS;
 		
 		
 	}
