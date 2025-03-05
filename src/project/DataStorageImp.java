@@ -15,7 +15,7 @@ public class DataStorageImp implements DataStorage {
 		List<Integer> numbers = new ArrayList<>();
 
 
-		String fileName = input.getFileName();
+		String fileName = input != null ? input.getFileName() : null;
 
 
 		if (fileName == null || fileName.isEmpty()) {

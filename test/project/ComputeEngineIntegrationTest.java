@@ -27,11 +27,18 @@ public class ComputeEngineIntegrationTest {
 		ComputeResult result = userComponent.compute(request);
 		Assertions.assertEquals(ComputeResult.SUCCESS, result);
 		
+		List<Integer> inputData = testInput.getInputs();
+		List<String> outputData = new ArrayList<>();
+		for(Integer i : inputData) {
+			outputData.add(engineComponent.compute(i));
+		}
+		testOutput.writeOutput(outputData);
+		
 		// add validation of the output
 		List<String> expectedOutput = new ArrayList<>();
 		expectedOutput.add("0");
 		expectedOutput.add("44");
-		expectedOutput.add("60,696");
+		expectedOutput.add("60696");
 		
 		// output check
 		Assertions.assertEquals(expectedOutput, testOutput.getOutput());

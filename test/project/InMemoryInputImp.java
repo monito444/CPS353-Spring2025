@@ -26,6 +26,6 @@ public class InMemoryInputImp implements UserInputConfig{
 
 	@Override
 	public String getFileName() {
-		return "";
+		return "test/project/example.txt";
 	}
 }
