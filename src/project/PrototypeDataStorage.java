@@ -7,7 +7,7 @@ public class PrototypeDataStorage{
 	@ProcessAPIPrototype
 	public void prototype(DataStorage apiCall) {
 		// create user input config
-		UserInputConfig inputConfig = new UserInputConfig() {
+		UserInputConfig inputConfig = new UserInputConfigImp("example.txt") {
 			
 		};
 		

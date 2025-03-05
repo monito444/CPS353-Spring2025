@@ -23,4 +23,9 @@ public class InMemoryInputImp implements UserInputConfig{
 	public List<Integer> getInputs() {
 		return inputData;
 	}
+
+	@Override
+	public String getFileName() {
+		return "";
+	}
 }

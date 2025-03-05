@@ -11,4 +11,10 @@ public class InMemoryOutputImp implements UserOutputConfig{
     	return outputData;
     }
 
+	@Override
+	public String getFileName() {
+		// TODO Auto-generated method stub
+		return "";
+	}
+
 }
