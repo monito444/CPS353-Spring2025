@@ -1,5 +1,8 @@
 package project;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserImp implements User{
 	private final ComputeEngine computeEngineAPI;
 	private final DataStorage dataStorageAPI;
@@ -18,6 +21,7 @@ public class UserImp implements User{
 		}
 		
 		UserInputConfig inputConfiguration= request.getInputConfig();
+		UserOutputConfig outputConfig=request.getOutputConfig();
 		DataStorageReadResult readResult =dataStorageAPI.read(inputConfiguration);		
 		Iterable<Integer> integer=readResult.getResults();
 		
@@ -25,12 +29,12 @@ public class UserImp implements User{
 			return ComputeResult.FAILURE;
 		}
 		
+		List<String> outputData = new ArrayList<>();
 		for (Integer i: integer) {//sends to compute Engine.
 			//assuming all 'i' will be integers obviously.
-			computeEngineAPI.compute(i);
+			outputData.add(computeEngineAPI.compute(i));
 		}
 		
-		UserOutputConfig outputConfig=request.getOutputConfig();
 		return ComputeResult.SUCCESS;
 		
 		
