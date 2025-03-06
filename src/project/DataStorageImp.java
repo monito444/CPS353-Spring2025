@@ -14,12 +14,13 @@ public class DataStorageImp implements DataStorage {
 	public DataStorageReadResult read(UserInputConfig input) {
 	    List<Integer> numbers = new ArrayList<>();
 
-	    String fileName = input != null ? input.toString() : null;
+		String fileName = input != null ? input.getFileName() : null;
 
 	    if (fileName == null || fileName.isEmpty()) {
 	        System.err.println("Error: Input file name is missing.");
 	        return new DataStorageReadResultImp("Invalid input configuration.");
 	    }
+
 
 	    try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
 	        String line;
@@ -40,13 +41,15 @@ public class DataStorageImp implements DataStorage {
 	        System.err.println("Error reading file: " + fileName);
 	        return new DataStorageReadResultImp("Error reading file: " + fileName);
 	    }
+
 	}
 
 
 	@Override
 	public WriteResult appendSingleResult(UserOutputConfig output, String result, char delimiter) {
  
-		String fileName = output != null ? output.toString() : null;
+
+		String fileName = output != null ? output.getFileName() : null;
 
 		if (fileName == null || fileName.isEmpty()) {
 			System.err.println("Error: Output file name is missing.");
