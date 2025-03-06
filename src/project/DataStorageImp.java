@@ -12,40 +12,43 @@ public class DataStorageImp implements DataStorage {
 
 	@Override
 	public DataStorageReadResult read(UserInputConfig input) {
-		List<Integer> numbers = new ArrayList<>();
-
+	    List<Integer> numbers = new ArrayList<>();
 
 		String fileName = input != null ? input.getFileName() : null;
 
+	    if (fileName == null || fileName.isEmpty()) {
+	        System.err.println("Error: Input file name is missing.");
+	        return new DataStorageReadResultImp("Invalid input configuration.");
+	    }
 
-		if (fileName == null || fileName.isEmpty()) {
-			System.err.println("Error: Input file name is missing.");
-			return new DataStorageReadResultImp("Invalid input configuration.");
-		}
 
-		try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-			String line;
-			while ((line = reader.readLine()) != null) {
+	    try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            for (String numStr : line.split(",")) {
+	                try {
+	                    double parsedValue = Double.parseDouble(numStr.trim());
 
-				for (String numStr : line.split(",")) {
+	                    // Convert float/double to integer (rounding down)
+	                    numbers.add((int) parsedValue);
+	                } catch (NumberFormatException e) {
+	                    throw new IllegalArgumentException("Invalid data format: " + numStr + " is not a valid number.");
+	                }
+	            }
+	        }
+	        return new DataStorageReadResultImp(numbers); // Success case
+	    } catch (IOException e) {
+	        System.err.println("Error reading file: " + fileName);
+	        return new DataStorageReadResultImp("Error reading file: " + fileName);
+	    }
 
-					try {
-						numbers.add(Integer.parseInt(numStr.trim()));
-					} catch (NumberFormatException e) {
-						System.err.println("Skipping invalid number: " + numStr);
-					}
-				}
-			}
-			return new DataStorageReadResultImp(numbers); // Success case
-		} catch (IOException e) {
-			System.err.println("Error reading file: " + fileName);
-			return new DataStorageReadResultImp("Error reading file: " + fileName);
-		}
 	}
+
 
 	@Override
 	public WriteResult appendSingleResult(UserOutputConfig output, String result, char delimiter) {
  
+
 		String fileName = output != null ? output.getFileName() : null;
 
 		if (fileName == null || fileName.isEmpty()) {
