@@ -32,7 +32,8 @@ public class DataStorageImp implements DataStorage {
 	                    // Convert float/double to integer (rounding down)
 	                    numbers.add((int) parsedValue);
 	                } catch (NumberFormatException e) {
-	                    throw new IllegalArgumentException("Invalid data format: " + numStr + " is not a valid number.");
+	                	System.err.println("Invalid data format: " + numStr + " is not a valid number.");
+	                	return new DataStorageReadResultImp("Invalid data format: " + numStr + " is not a valid number.");
 	                }
 	            }
 	        }
