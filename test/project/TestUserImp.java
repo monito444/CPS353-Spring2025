@@ -54,7 +54,7 @@ public class TestUserImp{
     	when(dataStorageMock.read(mockInputConfig)).thenReturn(mockReadResult);
     	when(mockReadResult.getResults()).thenReturn(null);
     	
-    	ComputeResult result =userImp.compute(mockRequest));
+    	ComputeResult result =userImp.compute(mockRequest);
     	assertEquals(ComputeResult.FAILURE,result,"Expected Failure when result in Data is Null");
        
     }
