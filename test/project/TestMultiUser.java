@@ -17,21 +17,25 @@ public class TestMultiUser {
 	
 	// TODO 1: change the type of this variable to the name you're using for your @NetworkAPI
 	// interface
-	private ComputationCoordinator coordinator;
+	private User coordinator;
 	
 	@BeforeEach
 	public void initializeComputeEngine() {
 		//TODO 2: create an instance of the implementation of your @NetworkAPI; this is the component
 		// that the user will make requests to
 		// Store it in the 'coordinator' instance variable
+		DataStorage storage = new DataStorageImp();
+		ComputeEngine engine = new ComputeEngineImp();
+		
+		coordinator = new UserImp(engine, storage);
 	}
 
 	@Test
 	public void compareMultiAndSingleThreaded() throws Exception {
 		int nThreads = 4;
-		List<TestUser> testUsers = new ArrayList<>();
+		List<TestUserThread> testUsers = new ArrayList<>();
 		for (int i = 0; i < nThreads; i++) {
-			testUsers.add(new TestUser(coordinator));
+			testUsers.add(new TestUserThread(coordinator));
 		}
 		
 		// Run single threaded
@@ -52,7 +56,7 @@ public class TestMultiUser {
 					new File(multiThreadFilePrefix + i);
 			multiThreadedOut.deleteOnExit();
 			String multiThreadOutputPath = multiThreadedOut.getCanonicalPath();
-			TestUser testUser = testUsers.get(i);
+			TestUserThread testUser = testUsers.get(i);
 			results.add(threadPool.submit(() -> testUser.run(multiThreadOutputPath)));
 		}
 		
