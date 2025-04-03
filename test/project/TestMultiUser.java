@@ -3,6 +3,8 @@ package project;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -43,6 +45,10 @@ public class TestMultiUser {
 		for (int i = 0; i < numThreads; i++) {
 			File singleThreadedOut = 
 					new File(singleThreadFilePrefix + i);
+			if(singleThreadedOut.exists() == false) {
+				Path fileSinglePath = Paths.get(singleThreadFilePrefix + i);
+				Files.createFile(fileSinglePath);
+			}
 			singleThreadedOut.deleteOnExit();
 			testUsers.get(i).run(singleThreadedOut.getCanonicalPath());
 		}
@@ -54,6 +60,10 @@ public class TestMultiUser {
 		for (int i = 0; i < numThreads; i++) {
 			File multiThreadedOut = 
 					new File(multiThreadFilePrefix + i);
+			if(multiThreadedOut.exists() == false) {
+				Path fileMultiPath = Paths.get(multiThreadFilePrefix + i);
+				Files.createFile(fileMultiPath);
+			}
 			multiThreadedOut.deleteOnExit();
 			String multiThreadOutputPath = multiThreadedOut.getCanonicalPath();
 			TestUserThread testUser = testUsers.get(i);
