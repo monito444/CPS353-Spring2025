@@ -19,9 +19,8 @@ public class MultiUserImp implements User {
     public MultiUserImp(ComputeEngine computeEngineAPI, DataStorage dataStorageAPI) {
         this.computeEngineAPI = computeEngineAPI;
         this.dataStorageAPI = dataStorageAPI;
-        this.executorService = Executors.newFixedThreadPool(
-                Runtime.getRuntime().availableProcessors()
-        );
+        this.executorService = Executors.newFixedThreadPool(4);
+        
     }
 
     @Override
