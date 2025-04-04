@@ -37,6 +37,12 @@ public class UserImp implements User {
             for (Integer i : integer) {
                 outputData.add(computeEngineAPI.compute(i));
             }
+            for (String s : outputData) {
+                WriteResult writeResult = dataStorageAPI.appendSingleResult(outputConfig, s, request.getDelimiter());
+                if (writeResult.getStatus() == WriteResult.WriteResultStatus.FAILURE) {
+                    return ComputeResult.FAILURE;
+                }
+            }
             
             return ComputeResult.SUCCESS;
         } catch (IllegalArgumentException e) {
