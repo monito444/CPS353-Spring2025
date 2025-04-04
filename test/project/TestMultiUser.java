@@ -29,7 +29,7 @@ public class TestMultiUser {
 		DataStorage storage = new DataStorageImp();
 		ComputeEngine engine = new ComputeEngineImp();
 		
-		coordinator = new UserImp(engine, storage);
+		coordinator = new MultiUserImp(engine, storage);
 	}
 
 	@Test
