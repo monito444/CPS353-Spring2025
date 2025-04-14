@@ -1,0 +1,19 @@
+package protobuf;
+
+message UserRequest{
+ 	optional string inputFile  = 1;
+ 	optional string outputFile = 2;
+ 	optional string delimiter = 3;
+ }
+ 
+ message UserResponse{
+ 	enum ComputeResult {
+ 		success = 1;
+ 		failure = 2;
+ 	}
+ 	optional ComputeResult status = 3;
+ }
+ 
+ service ComputeService{
+ 	rpc compute (userRequest) returns (userResponse);
+ }
