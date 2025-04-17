@@ -15,5 +15,5 @@ message UserRequest{
  }
  
  service ComputeService{
- 	rpc compute (userRequest) returns (userResponse);
+ 	rpc compute (UserRequest) returns (UserResponse);
  }
