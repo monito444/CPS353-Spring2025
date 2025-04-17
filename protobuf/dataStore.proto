@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package protobuf;
+
+message DataStorageInputConfig {
+  optional string fileInputName = 1;
+}
+
+message DataStorageOutputConfig {
+  optional string fileOutputName = 1;
+  optional string result = 2;
+  optional string delimiter = 3;
+}
+
+message DataStorageWriteResult {
+  optional string status = 1;
+}
+
+message DataStorageReadResult {
+  repeated int32 data = 1;
+  optional string status = 2;
+  optional string errorMessage = 3;
+}
+
+service DataStorageService {
+  rpc read(DataStorageInputConfig) returns (DataStorageReadResult);
+  rpc appendResult(DataStorageOutputConfig) returns (DataStorageWriteResult);
+}
