@@ -8,6 +8,6 @@ public class TestComputeEngine {
 	@Test
 	public void testCompute() {
 		ComputeEngine engine = new ComputeEngineImp();
-		Assertions.assertEquals("0", engine.compute(1));
+		Assertions.assertEquals("44", engine.compute(10));
 	}
 }
