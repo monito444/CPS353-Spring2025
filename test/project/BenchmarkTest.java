@@ -4,7 +4,11 @@ public class BenchmarkTest {
 
     public static void main(String[] args) {
         ComputeEngine original = new ComputeEngineImp();
+<<<<<<< Updated upstream
         //ComputeEngine faster = new ComputeEngineImpImproved();
+=======
+        ComputeEngine faster = new ComputeEngineImpImproved();
+>>>>>>> Stashed changes
 
         int testValue = 20;
 
@@ -14,7 +18,11 @@ public class BenchmarkTest {
         long durationOriginal = endOriginal - startOriginal;
 
         long startFaster = System.nanoTime();
+<<<<<<< Updated upstream
         //faster.compute(testValue);
+=======
+        faster.compute(testValue);
+>>>>>>> Stashed changes
         long endFaster = System.nanoTime();
         long durationFaster = endFaster - startFaster;
 
