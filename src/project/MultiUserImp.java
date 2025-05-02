@@ -48,6 +48,13 @@ public class MultiUserImp implements User {
             for (Future<String> future : futures) {
                 outputData.add(future.get());
             }
+            //outputConfig.writeOutput(outputData);
+            for(String s : outputData) {
+            	WriteResult writeResult = dataStorageAPI.appendSingleResult(outputConfig, s, request.getDelimiter());
+            	if(writeResult.getStatus() == WriteResult.WriteResultStatus.FAILURE) {
+            		return ComputeResult.FAILURE;
+            	}
+            }
 
             return ComputeResult.SUCCESS;
 
